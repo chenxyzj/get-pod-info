@@ -1,10 +1,13 @@
+# V3.0:测试向pod内容器中传递环境参数，观察两个不同pod内的参数不同
+  使用的是dapi-test-deployment.yaml。
+  replica=2生成两个pod,观察其中的容器程序显示环境变量不同。
 # V2.0: 将创建命名空间放在yaml文件中
 ## 0. 更新了yaml文件
 ## 1. apply
 ``` kubectl apply -f ./dapi-test-pod.yaml  ```
 ## 2. 查看命名空间、查看pod
 ``` kubectl get ns ```
-``` kubectl get pod -n dapi-test-api  ```
+``` kubectl get pod -n dapi-test-app  ```
 ## 3. 查看容器日志
   - 方法1: 通过vscode的k8s扩展查看pod的log
   - 方法2: 通过命令查看日志
@@ -13,7 +16,7 @@
 ``` kubectl delete -f ./dapi-test-pod.yaml  ```
 ## 5. 查看命名空间、查看pod已经删除
 ``` kubectl get ns ```
-``` kubectl get pod -n dapi-test-api  ```
+``` kubectl get pod -n dapi-test-app  ```
 
 # V1.0: 测试通过Downward API传递pod信息给容器内应用
 

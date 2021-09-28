@@ -1,0 +1,60 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: dapi-test-deploy-ns
+   labels:
+     name: dapi-test-deploy-ns
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dapi-test-deploy
+  namespace: dapi-test-deploy-ns
+  labels:
+    app: dapi-test
+  annotations:
+spec:
+  selector:
+    matchLabels:
+      app: dapi-test
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: dapi-test
+    spec:
+      containers:
+      - name: test-container
+        image: node:14.17.3-alpine
+        command: [ "/bin/sh","-c","--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        env:
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "125m"
+          limits:
+            memory: "64Mi"
+            cpu: "250m"  
+
+
+
+

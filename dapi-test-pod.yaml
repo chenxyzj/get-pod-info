@@ -14,7 +14,8 @@ spec:
   containers:
   - name: test-container
     image: node:14.17.3-alpine
-    command: [ "/bin/sh", "-c", "env" ]
+    command: [ "/bin/sh","-c","--" ]
+    args: [ "while true; do sleep 30; done;" ]
     env:
       - name: MY_POD_NAME
         valueFrom:
