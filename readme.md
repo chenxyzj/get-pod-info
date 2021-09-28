@@ -34,3 +34,17 @@
     kubectl delete -f ./dapi-test-pod.yaml 
     kubectl delete ns dapi-test-app 
     ```
+
+## 参考
+[1]. https://blog.csdn.net/saga_gallon/article/details/92839589
+[2]. https://kubernetes.io/zh/docs/tasks/configure-pod-container/assign-cpu-resource/
+[3]. https://www.cnblogs.com/zhanglianghhh/p/14259632.html
+[4]. https://blog.csdn.net/mahui_1980/article/details/115308226?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-5.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-5.no_search_link
+[5]. https://www.cnblogs.com/Wshile/p/12945909.html
+[6]. https://blog.csdn.net/qq_31136839/article/details/95622628
+[7]. https://www.cnblogs.com/51core/articles/15104579.html
+[8]. https://blog.51cto.com/phospherus/2445758?ivk_sa=1024320u
+[9]. https://blog.51cto.com/u_15315026/3200036
+[10]. https://blog.51cto.com/u_13760351/2622839
+[11]. https://blog.51cto.com/u_15127504/4026704
+[12]. https://kubernetes.io/zh/docs/concepts/overview/working-with-objects/namespaces/
